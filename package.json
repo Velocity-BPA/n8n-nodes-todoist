@@ -1,0 +1,52 @@
+{
+  "name": "n8n-nodes-todoist",
+  "version": "1.0.0",
+  "description": "n8n community node for Todoist task management integration",
+  "keywords": [
+    "n8n-community-node-package",
+    "todoist",
+    "task-management",
+    "productivity"
+  ],
+  "license": "BSL-1.1",
+  "homepage": "https://n8n.io",
+  "author": {
+    "name": "n8n Community",
+    "email": "info@n8n.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n8n-io/n8n-nodes-todoist.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials package.json",
+    "lintfix": "eslint nodes credentials package.json --fix",
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/TodoistApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Todoist/Todoist.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "~5.45.0",
+    "eslint-plugin-n8n-nodes-base": "~1.11.0",
+    "n8n-workflow": "*",
+    "prettier": "^2.7.1",
+    "typescript": "~4.8.4"
+  },
+  "dependencies": {
+    "n8n-workflow": "*"
+  }
+}
